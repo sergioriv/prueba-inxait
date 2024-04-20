@@ -4,13 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Department extends Model
+class Winner extends Model
 {
-    public $timestamps = false;
+    protected $table = 'winner';
 
     protected $guarded = [];
     protected $casts = [];
     protected $appends = [];
 
-    public function cities() { return $this->hasMany(City::class); }
+    public function customer() { return $this->belongsTo(Customer::class); }
 }
