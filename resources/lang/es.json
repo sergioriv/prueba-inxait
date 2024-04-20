@@ -1,10 +1,14 @@
 {
     "Name": "Nombre",
     "Last name": "Apellido",
-    "Document": "Número de documento",
+    "Document": "Número de Cédula",
     "Department": "Departamento",
     "City": "Ciudad",
     "Phone": "Celular",
+    "Email": "Correo electrónico",
     "Register": "Registrarse",
-    "Administrator login": "Acceso de administrador"
+    "Administrator login": "Acceso de administrador",
+    "All records were completed": "Se completaron la totalidad de registros",
+
+    "An error has occurred": "Ha ocurrido un error"
 }
