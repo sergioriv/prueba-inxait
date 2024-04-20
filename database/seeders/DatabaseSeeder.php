@@ -13,5 +13,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // creación del administrador
+        $user = new \App\Models\User;
+        $user->forceFill([
+            'name' => 'Administrador',
+            'email' => 'administrador@example.com',
+            'password' => \Hash::make('administrador'),
+            'email_verified_at' => now()
+        ])->save();
+
+        // cración de departamentos y sus ciudades o municipios
+        $this->call(DepCitiesSeeder::class);
     }
 }
