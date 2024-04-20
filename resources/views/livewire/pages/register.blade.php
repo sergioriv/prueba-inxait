@@ -1,9 +1,5 @@
 <?php
 
-use App\Models\User;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
@@ -48,24 +44,30 @@ class extends Component
             'document' => ['required', 'alpha_num', 'max:999999999999', 'unique:customers,document'],
             'city' => ['required', 'exists:cities,id'],
             'phone' => ['required', 'alpha_num', 'max:999999999999'],
-            'email' => ['required', 'email', 'alpha_dash', 'lowercase', 'max:190'],
+            'email' => ['required', 'email', 'lowercase', 'max:190'],
             'habeas_data' => ['boolean']
+        ], [
+            'document.unique' => 'El documento ya ha sido registrado'
+        ], [
+            'name' => 'nombre',
+            'last_name' => 'apellido',
+            'document' => 'cédula',
+            'city' => 'ciudad',
+            'phone' => 'celular',
+            'email' => 'correo electrónico',
+            'habeas_data' => 'habeas data'
         ]);
 
-        $validated['city_id'] = $validate['city'];
-        unset($validate['city']);
+        $response = \App\Http\Controllers\Services\RegisterService::register($validated);
+        $this->alert($response->type, $response->message);
 
-        \App\Models\Customer::create($validated);
-
-        $this->alert('success', __('Successful registration!'));
-
-        $this->reset();
+        $this->redirect('/');
     }
 }; ?>
 
 <div>
 
-    <form wire:submit="register">
+    <form wire:submit="register" method="POST">
 
         <div class="flex flex-col gap-4">
 
@@ -130,7 +132,7 @@ class extends Component
 
             <div>
                 <div class="flex items-center">
-                    <x-checkbox-input id="habeas_data" />
+                    <x-checkbox-input id="habeas_data" wire:model="habeas_data" />
                     <x-input-label for="habeas_data" class="ms-2">
                         <span>Autorizo el tratamiento de mis datos de acuerdo con la finalidad establecida en la política de protección de datos personales. <a href="#" class="font-semibold" style="color:royalblue;">Haga clic aquí</a></span>
                     </x-input-label>

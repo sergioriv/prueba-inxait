@@ -14,7 +14,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
 
-    <body class="antialiased font-sans bg-gray-50">
+    <body class="antialiased font-sans bg-gray-200">
         {{ $slot }}
 
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
