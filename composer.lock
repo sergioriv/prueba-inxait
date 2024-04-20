@@ -2180,7 +2180,7 @@
         },
         {
             "name": "maatwebsite/excel",
-            "version": "3.1.55",
+            "version": "3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SpartnerNL/Laravel-Excel.git",
