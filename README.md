@@ -7,60 +7,48 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Presentación de la prueba técnica para la empresa [INXAIT](https://www.inxaitcorp.com/)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+****
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ¿Como instalar en una maquina local?
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Requisitos previos:
+- PHP 8.2
+- Composer 2
+- NodeJs igual o superior a la version 16
+<p>
+Una vez tenga instalado PHP y Composer, y tenga los archivos del proyecto en un directorio de su equipo local.
+</p>
+<p>
+Deberá ejecutar una serie de comandos en el orden que se indica a continuación
+</p>
 
-## Learning Laravel
+1. Este comando instalara las dependencias necesarias para el funcionamiento de Laravel.
+``composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader --ignore-platform-req=ext-zip``
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+2. Se genera una copia del archivo *.env.example* al archivo *.env*
+``php -r "file_exists('.env') || copy('.env.example', '.env');"``
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+3. Se genera una llave de seguridad para la aplicación de Laravel.
+``php artisan key:generate``
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+4. En el caso del ejercicio tomé la alternativa de utilizar SQLite como Base de Datos, para hacer una instalación más sencilla y no requerir de más instalaciones como lo es para el caso de MySQL o PostgreSQL, omitir este paso si desea utilizar MySQL o PostgrSQL y realizar previa configuración al archivo *.env* , si toma la alternativa SQLite, recuerde que debe habilitar la *extensión pdo_sqlite* en el archivo de configuración de su PHP llamado *php.ini* 
+``php -r "file_exists('database/database.sqlite') || touch('database/database.sqlite');"``
 
-## Laravel Sponsors
+5. Se genera la migración de tablas a la Base de Datos y un seeder que genera la creación de departamentos con sus ciudades y municipios del país y un usuario *(correo: administrador@example.com password: administrador)*
+``php artisan migrate --seed``
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+6. Instalará las dependecias para NodeJs
+``npm install``
 
-### Premium Partners
+7. Compila los archivos js, css y Taildwind
+``npm run build``
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+8. Por último, para ver el resultado se ejecuta este comando en donde PHP iniciará un servidor local, por defecto usará el puerto 8000 *http://localhost:8000* pero si se desea cambiar el puerto en donde se ejecuta el proyecto, basta con agregar por ejemplo *--post=8001* 
+``php artisan serve``
 
-## Contributing
+Este último comando será suficiente para volver a iniciar el servidor local
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+*[20-04-2024]*
