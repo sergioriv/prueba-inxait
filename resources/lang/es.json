@@ -1,0 +1,10 @@
+{
+    "Name": "Nombre",
+    "Last name": "Apellido",
+    "Document": "Número de documento",
+    "Department": "Departamento",
+    "City": "Ciudad",
+    "Phone": "Celular",
+    "Register": "Registrarse",
+    "Administrator login": "Acceso de administrador"
+}
