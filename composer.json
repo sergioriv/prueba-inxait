@@ -5,12 +5,13 @@
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
+        "php": "8.2",
         "jantinnerezo/livewire-alert": "v3.0.2",
         "laravel/framework": "v11.4.0",
         "laravel/tinker": "2.9",
         "livewire/livewire": "v3.4.10",
-        "livewire/volt": "v1.6.3"
+        "livewire/volt": "v1.6.3",
+        "maatwebsite/excel": "3.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "v3.13.4",
