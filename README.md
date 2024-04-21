@@ -16,7 +16,7 @@
 Requisitos previos:
 - PHP 8.2
 - Composer 2
-- NodeJs igual o superior a la version 16
+- NodeJs igual o superior a la versión 16
 <p>
 Una vez tenga instalado PHP y Composer, y tenga los archivos del proyecto en un directorio de su equipo local.
 </p>
@@ -39,16 +39,16 @@ Deberá ejecutar una serie de comandos en el orden que se indica a continuación
 5. Se genera la migración de tablas a la Base de Datos y un seeder que genera la creación de departamentos con sus ciudades y municipios del país y un usuario *(correo: administrador@example.com password: administrador)*
 ``php artisan migrate --seed``
 
-6. Instalará las dependecias para NodeJs
+6. Instalará las dependencias para NodeJs
 ``npm install``
 
 7. Compila los archivos js, css y Taildwind
 ``npm run build``
 
-8. Por último, para ver el resultado se ejecuta este comando en donde PHP iniciará un servidor local, por defecto usará el puerto 8000 *http://localhost:8000* pero si se desea cambiar el puerto en donde se ejecuta el proyecto, basta con agregar por ejemplo *--post=8001* 
+8. Por último, para ver el resultado se ejecuta este comando en donde PHP iniciará un servidor local, por defecto usará el puerto 8000 *http://localhost:8000* pero si se desea cambiar el puerto en donde se ejecuta el proyecto, basta con agregar, por ejemplo *--post=8001* 
 ``php artisan serve``
 
-Este último comando será suficiente para volver a iniciar el servidor local
+Este último comando será suficiente para volver a iniciar el servidor local.
 
 
 *[20-04-2024]*
